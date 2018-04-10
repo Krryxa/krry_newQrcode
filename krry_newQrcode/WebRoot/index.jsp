@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,qrcode.CodeServlet" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*,qrcode.CodeServlet" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
@@ -23,9 +23,9 @@
 	.qrcode .inp{display:block;width:300px;height:45px;margin:10px auto;color:#fff;background:#f90;font-size:18px;font-family:"微软雅黑";border:0;outline:none;border-radius:9px;cursor:pointer;transition:.6s;}
 	.qrcode .inp:hover{background:red;transition:.6s;}
 	#typeQrcode{width:90px;height: 32px;border-radius: 10px;border: none;}
-	.png{width:235;height:235;margin-top:40px;}
+	.png{width:200px;height:200px;margin-top:40px;}
 	.ping{color: #FF5722;font-size: 20px;}
-	.png2{width:235px;height:235px;margin-top:20px;}
+	.png2{width:200px;height:200px;margin-top:20px;}
 	.uploadbutton2{	margin-left:36px;
 				    width: 104px;
 				    height: 32px;
@@ -59,7 +59,7 @@
 	{  text-align:center;  
 	    width:200px;  
 	    height:200px;  
-	    border:1px solid red;
+	    background: #fff;
 	}  
 	#result{  
 	    border: solid;  
@@ -89,7 +89,7 @@
 							<canvas id="out-canvas" width="200" height="200"></canvas>
 							<div id="imghelp">
 								<input type="button" class="uploadbutton" id="uploadfile" value="上传"/>
-								<input type="file" id="uploadQrcode" accept="image/*" onchange="handleFiles(this.files)"/>
+								<input type="file" id="uploadQrcode" accept="image/jpeg,image/png" onchange="handleFiles(this.files)"/>
 							</div>
 							<div id="result" style="display:none;"></div>  
 						</div>
@@ -100,7 +100,7 @@
 			
 			<div class="right">
 				<p class="ping">示例二维码</p>
-				<div class="png2" width="235">
+				<div class="png2" width="200">
 					<img alt="示例" src="images/exp/1.png">
 				</div>
 			</div>
@@ -116,7 +116,7 @@
 					<input type="button" class="uploadbutton2" id="changebutton" value="上传二维码"/>
 				</div>
 				<input type="button" class="inp" value="生成二维码" />
-				<div class="png" width="235"></div>
+				<div class="png" width="200"></div>
 			</div>
 			
 		</div>
@@ -147,8 +147,9 @@
 			
 			//点击转换
 			$("#changebutton").click(function(){
-				//清除画布
+				//清除画布和结果值
 				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				$("#result").text("");
 				//清除文本
 				$(".inputqr .area").val("");
 				
@@ -170,18 +171,18 @@
 				if($(".inputqr").is(":hidden")){
 					value = $("#result").text();
 					if(isEmpty(value)){ //如果没有上传
-						$.tmDialog.alert({open:"top",content:"请先上传二维码图片",title:"Krry的温馨提醒"});
+						alert("请先上传二维码图片");
 						return;
 					}
 					if(value == "errorxiaoqi"){
-						$.tmDialog.alert({open:"top",content:"解析错误",title:"Krry的温馨提醒"});
+						alert("解析错误");
 						return;
 					}
 				}//如果是文本输入
 				else{
 					value = $(".area").val();
 					if(isEmpty(value)){ //如果没有输入
-						$.tmDialog.alert({open:"top",content:"请先输入信息",title:"Krry的温馨提醒"});
+						alert("请先输入信息");
 						return;
 					}
 				}
