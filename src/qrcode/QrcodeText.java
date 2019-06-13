@@ -83,10 +83,10 @@ public class QrcodeText{
 //					Image image3 = tool.getImage(aspath+"\\"+type+"\\3.png");
 					
 					//可以第一次加载完全图片
-					BufferedImage image_eye = ImageIO.read(new FileInputStream(aspath+"\\"+type+"\\eye.png"));
-					BufferedImage image1 = ImageIO.read(new FileInputStream(aspath+"\\"+type+"\\1.png"));
-					BufferedImage image2 = ImageIO.read(new FileInputStream(aspath+"\\"+type+"\\2.png"));
-					BufferedImage image3 = ImageIO.read(new FileInputStream(aspath+"\\"+type+"\\3.png"));
+					BufferedImage image_eye = ImageIO.read(new FileInputStream(aspath+"/"+type+"/eye.png"));
+					BufferedImage image1 = ImageIO.read(new FileInputStream(aspath+"/"+type+"/1.png"));
+					BufferedImage image2 = ImageIO.read(new FileInputStream(aspath+"/"+type+"/2.png"));
+					BufferedImage image3 = ImageIO.read(new FileInputStream(aspath+"/"+type+"/3.png"));
 					
 					
 					//绘制码眼
@@ -135,7 +135,7 @@ public class QrcodeText{
 				String realPath = request.getRealPath("/");
 				//String realPath = "D:\\apache-tomcat-8.0.33\\webapps\\krry_Qrcode\\upload\\";
 				pathName = new Date().getTime()+".png";
-				outputStream = new FileOutputStream(new File(realPath+"upload\\", pathName));
+				outputStream = new FileOutputStream(new File(realPath+"upload/", pathName));
 				ImageIO.write(image, "png", outputStream);
 				
 				System.out.println("二维码图片生成成功!");
