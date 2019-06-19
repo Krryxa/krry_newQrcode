@@ -8,7 +8,7 @@
   <meta name="Description" content="">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="stylesheet" type="text/css" href="css/sg.css" />
-  <title>Java开发微信二维码系统 --krry</title>
+  <title>Java 开发微信二维码系统 --krry</title>
   <style type="text/css">
     *{margin:0;padding:0}
 	body{background:url("images/1.jpg");background-size:cover;font-family:"微软雅黑";}
